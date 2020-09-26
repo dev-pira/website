@@ -43,7 +43,7 @@ Mantenedores do projeto que não seguem ou aplicam o Código de Conduta de boa f
 ## Atribuição
 
 Este Código de Conduta foi adaptado do [Pacto do Colaborador] [homepage], versão 1.4,
-disponível em [https://www.contributor-covenant.org/version/1/4/code-of-conduct.html](https://www.contributor-covenant.org/version/1/4/code- of-conduct.html)
+disponível em [https://www.contributor-covenant.org/version/1/4/code-of-conduct.html](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html)
 
 [homepage]: https://www.contributor-covenant.org
 
