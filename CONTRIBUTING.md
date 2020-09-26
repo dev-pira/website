@@ -43,14 +43,13 @@ Antes de solicitar a nova funcionalidade considere os sequintes pontos:
 
 ## <a name="pullrequest"></a> Enviando um Pull Request
 
-When submitting a pull request to the [GitHub Repository][github] make sure to do the following:
+Ao enviar uma solicitação pull ao [Repositório GitHub][github], certifique-se de fazer o seguinte:
 
-- Check that new and updated code follows Json.NET's existing code formatting and naming standard
-- Run Json.NET's unit tests to ensure no existing functionality has been affected
-- Write new unit tests to test your changes. All features and fixed bugs must have tests to verify
-they work
+- Verifique se o código novo e atualizado segue a formatação de código existente e o padrão de nomenclatura
+- Execute testes de unidade para garantir que nenhuma funcionalidade existente foi afetada
+- Escreva novos testes de unidade para testar suas mudanças. Todos os recursos e bugs corrigidos devem ter testes para verificar se funcionam
 
-Read [GitHub Help][pullrequesthelp] for more details about creating pull requests.
+Leia a [Ajuda do GitHub][pullrequesthelp] para obter mais detalhes sobre a criação de solicitações pull.
 
 
 ## <a name="cla"></a> Acordo de Licença de Colaborador
