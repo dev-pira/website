@@ -11,37 +11,34 @@ Por favor, leia as diretrizes antes de contribuir com **DevPira Website**:
 
 ## <a name="question"></a> Tem uma questão ou dificuldade?
 
-Se você tiver alguam dificuldade ou questão sobre o uso do código ou como pode contribuir com o Website, sinta-se convidado a conectar com os membros da comunidade em nosso canal do [Slack](https://dev-piracicaba.slack.com), grupos do [WhatsApp](https://chat.whatsapp.com/EkL1sHqrIvY0DIGjGYMqej), [Telegram](https://t.me/joinchat/CY8l7Ro28yIZN-GSoAiIFQ) ou ainda entrar em contato com a comunidade em nossa página no [Facebook](https://www.facebook.com/DevPiracicaba).
+Se você tiver alguam dificuldade ou questão sobre o uso do código ou como pode contribuir com o Website, sinta-se convidado a conectar com os membros da comunidade em nosso canal do [Slack][slack], grupos do [WhatsApp][whatsapp], [Telegram][telegram] ou ainda entrar em contato com a comunidade em nossa página no [Facebook][facebook].
 Se encontrou um defeito ou problema, você pode [reportar um defeito](#issue) aqui no GitHub. Se deseja sugerir uma nova funcionalidade ou melhoria, pode fazê-lo abrindo uma [sugestão de funcionalidade](#feature).
 
 
 ## <a name="issue"></a> Encontrou um problema?
 
-If you find a bug in the source code or a mistake in the documentation, you can help by
-submitting an issue to the [GitHub Repository][github]. Even better you can submit a Pull Request
-with a fix.
+Se você encontrou um defeito no código do projeto ou na documentação, você pode ajudar submetendo um problema no [Repositório do GitHub][github].
+Ainda melhor se puder enviar um Pull Request com a correção. :grin:
+Quando for submeter um problema, por favor atente-se a incluir as seguintes informações:
 
-When submitting an issue please include the following information:
+- A descrição do problema. Quanto mais detalhado melhor.
+- Em qual parte do website o erro foi observado. Ex.: URL.
+- A data em que observou o problema e/ou a versão do site descrita no rodapé do website.
+- Se houver, a Mensagem de Erro e a pilha de chamada que gerou o erro (_stacktrace_).
+- Se possível, incluir um código para reprodução do erro no GitHub [Gist][gist] ou enviar um [Pull Request](#pullrequest) com o problema reproduzido num novo teste.
 
-- A description of the issue
-- The JSON, classes, and Json.NET code related to the issue
-- The exception message and stacktrace if an error was thrown
-- If possible, please include code that reproduces the issue. [DropBox][dropbox] or GitHub's
-[Gist][gist] can be used to share large code samples, or you could
-[submit a pull request](#pullrequest) with the issue reproduced in a new test.
-
-The more information you include about the issue, the more likely it is to be fixed!
+Quanto mais informações sobre o problema, maior a probabilidade de ele ser corrigido! :wink:
 
 
 ## <a name="feature"></a> Quer sugerir uma funcionalidade?
 
-You can request a new feature by submitting an issue to the [GitHub Repository][github]. Before
-requesting a feature consider the following:
+Você pode sugerir novas funcionalidades para o website publicando uma solicitação de funcionalidade no [Repositório do GitHub][github].
+Antes de solicitar a nova funcionalidade considere os sequintes pontos:
 
-- Json.NET has many extensibility points, it is possible you can implement your feature today without
-modifying Json.NET
-- Stability is important. Json.NET is used by thousands of other libraries and features that require
-large breaking changes are unlikely to be accepted
+- A sugestão agrega para o propósito do website?
+- Alguém já fez essa sugestão? Se sim, talvez seja melhor votar na sugestão de outra pessoa.
+- Mudanças **muito** grandes são menos propensas de serem aceitas.
+- As mudanças são votadas por um comitê, quanto mais detalhes sobre a funcionalidade em si e os benefícios esperados, melhor.
 
 
 ## <a name="pullrequest"></a> Enviando um Pull Request
@@ -58,32 +55,33 @@ Read [GitHub Help][pullrequesthelp] for more details about creating pull request
 
 ## <a name="cla"></a> Acordo de Licença de Colaborador
 
-By contributing your code to Json.NET you grant James Newton-King a non-exclusive, irrevocable, worldwide,
-royalty-free, sublicenseable, transferable license under all of Your relevant intellectual property rights
-(including copyright, patent, and any other rights), to use, copy, prepare derivative works of, distribute and
-publicly perform and display the Contributions on any licensing terms, including without limitation:
-(a) open source licenses like the MIT license; and (b) binary, proprietary, or commercial licenses. Except for the
-licenses granted herein, You reserve all right, title, and interest in and to the Contribution.
+Ao contribuir com seu código para o **DevPira Website**, você concede aos Representantes da Comunidade DevPira um serviço não exclusivo, irrevogável, em todo o mundo,
+Licença livre de royalties, sublicenciável e transferível de acordo com todos os seus direitos de propriedade intelectual relevantes
+(incluindo direitos autorais, patentes e quaisquer outros direitos), para usar, copiar, preparar trabalhos derivados de, distribuir e
+executar e exibir publicamente as Contribuições em quaisquer termos de licenciamento, incluindo, sem limitação:
+(a) licenças de código aberto como a licença do GNU; e (b) licenças binárias, proprietárias ou comerciais. Exceto para o
+licenças concedidas aqui, você reserva todos os direitos, títulos e interesses na e para a contribuição.
 
-You confirm that you are able to grant us these rights. You represent that You are legally entitled to grant the
-above license. If Your employer has rights to intellectual property that You create, You represent that You have
-received permission to make the Contributions on behalf of that employer, or that Your employer has waived such
-rights for the Contributions.
+Você confirma que é capaz de nos conceder esses direitos. Você declara que tem o direito legal de conceder o
+licença acima. Se o seu empregador tem direitos de propriedade intelectual que você cria, você declara que tem
+recebeu permissão para fazer as contribuições em nome desse empregador, ou que seu empregador renunciou a tais
+direitos para as contribuições.
 
-You represent that the Contributions are Your original works of authorship, and to Your knowledge, no other person
-claims, or has the right to claim, any right in any invention or patent related to the Contributions. You also
-represent that You are not legally obligated, whether by entering into an agreement or otherwise, in any way that
-conflicts with the terms of this license.
+Você declara que as contribuições são seus trabalhos originais de autoria e, que você saiba, nenhuma outra pessoa
+reivindica, ou tem o direito de reivindicar, qualquer direito em qualquer invenção ou patente relacionada às Contribuições. Você também
+declara que você não é legalmente obrigado, seja por meio de um contrato ou de outra forma, de qualquer forma que
+conflita com os termos desta licença.
 
-James Newton-King acknowledges that, except as explicitly described in this Agreement, any Contribution which
-you provide is on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED,
-INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OR CONDITIONS OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS
-FOR A PARTICULAR PURPOSE.
+Os Representantes da Comunidade DevPira reconhecem que, exceto conforme explicitamente descrito neste Contrato, qualquer Contribuição que
+que você fornece é "TAL COMO ESTÁ", SEM GARANTIAS OU CONDIÇÕES DE QUALQUER TIPO, SEJA EXPRESSA OU IMPLÍCITA,
+INCLUINDO, SEM LIMITAÇÃO, QUAISQUER GARANTIAS OU CONDIÇÕES DE TÍTULO, NÃO VIOLAÇÃO, COMERCIABILIDADE OU ADEQUAÇÃO
+PARA UM PROPÓSITO ESPECÍFICO.
 
 
-[github]: https://github.com/JamesNK/Newtonsoft.Json
-[documentation]: https://www.newtonsoft.com/json/help
-[stackoverflow]: https://stackoverflow.com/questions/tagged/json.net
-[dropbox]: https://www.dropbox.com
+[github]: https://github.com/dev-pira/website
 [gist]: https://gist.github.com
 [pullrequesthelp]: https://help.github.com/articles/using-pull-requests
+[slack]: https://dev-piracicaba.slack.com
+[telegram]: https://t.me/joinchat/CY8l7Ro28yIZN-GSoAiIFQ
+[whatsapp]: https://chat.whatsapp.com/EkL1sHqrIvY0DIGjGYMqej
+[facebook]: https://www.facebook.com/DevPiracicaba
