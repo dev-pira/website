@@ -570,6 +570,7 @@ export const SectionTrails = styled(Section)`
 
   .trails {
     .trail {
+      position: relative;
       margin-top: 40px;
       header {
         display: flex;
@@ -704,6 +705,45 @@ export const SectionTrails = styled(Section)`
           }
         }
       }
+      .tns-controls {
+        position: absolute;
+        width: 100%;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button {
+          background: ${props => props.theme.colors.primary};
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          font-size: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          pointer-events: all;
+          transition: all 0.2s ease;
+          &:first-child {
+            transform: translate3d(-50%, 0, 0);
+          }
+          &:last-child {
+            transform: translate3d(50%, 0, 0);
+          }
+          &:disabled {
+            background: ${props => lighten(0.1, props.theme.colors.secondary)};
+            color: ${props => lighten(0.2, props.theme.colors.secondary)};
+            cursor: default;
+          }
+          &:not(:disabled):hover {
+            background: ${props => lighten(0.1, props.theme.colors.primary)};
+          }
+        }
+      }
     }
   }
 
@@ -733,10 +773,6 @@ export const SectionTrails = styled(Section)`
       margin: 0 30px !important;
     }
 
-    .tns-controls {
-      display: none;
-    }
-
     .trail-speeches {
       margin: 0 ${props => props.theme.grid.gap * -1}px;
     }
@@ -751,10 +787,6 @@ export const SectionTrails = styled(Section)`
       font-size: 56px;
     }
 
-    .trail {
-      position: relative;
-    }
-
     .trails {
       margin-top: 80px;
       .trail {
@@ -764,44 +796,7 @@ export const SectionTrails = styled(Section)`
           }
         }
         .tns-controls {
-          position: absolute;
-          width: 100%;
-          margin: auto;
-          left: 0;
-          right: 0;
           top: 58px;
-          bottom: 0;
-          pointer-events: none;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          button {
-            background: ${props => props.theme.colors.primary};
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: all;
-            transition: all 0.2s ease;
-            &:first-child {
-              transform: translate3d(-50%, 0, 0);
-            }
-            &:last-child {
-              transform: translate3d(50%, 0, 0);
-            }
-            &:disabled {
-              background: ${props =>
-                lighten(0.1, props.theme.colors.secondary)};
-              color: ${props => lighten(0.2, props.theme.colors.secondary)};
-              cursor: default;
-            }
-            &:not(:disabled):hover {
-              background: ${props => lighten(0.1, props.theme.colors.primary)};
-            }
-          }
         }
       }
     }
