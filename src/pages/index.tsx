@@ -1,8 +1,9 @@
 import React from 'react'
+import { GetStaticProps } from 'next'
 import { FaChevronDown } from 'react-icons/fa'
 import { Link as LinkScroll } from 'react-scroll'
 import dynamic from 'next/dynamic'
-import { trails } from '../data/trails'
+import getTrails, { Trail } from '../data/trails'
 
 import {
   RiFacebookBoxFill,
@@ -27,10 +28,18 @@ import {
 
 const Slider = dynamic(() => import('../components/Slider'), { ssr: false })
 
-const Home: React.FC = () => {
-  const formatTime = (time: number) =>
-    time ? time.toString().padStart(2, '0') : '00'
+export const getStaticProps: GetStaticProps = async () => {
+  const trails = await getTrails()
 
+  return {
+    props: {
+      trails
+    },
+    revalidate: 1
+  }
+}
+
+const Home: React.FC<{ trails: Trail[] }> = ({ trails }) => {
   return (
     <Layout title="DEVPIRA - 2020">
       <SectionIntro>
@@ -284,13 +293,10 @@ const Home: React.FC = () => {
                       {trail.speeches.map((lecture, index) => (
                         <div
                           className="trail-lecture"
-                          key={lecture.title + index}
+                          key={lecture.theme + index}
                         >
                           <div className="lecture-content">
-                            <div className="lecture-time">
-                              {formatTime(lecture.time.hour)}h
-                              {formatTime(lecture.time.minute)}
-                            </div>
+                            <div className="lecture-time">{lecture.time}</div>
                             {lecture.soon ? (
                               <div className="lecture-soon">Em breve</div>
                             ) : (
@@ -304,7 +310,7 @@ const Home: React.FC = () => {
                                   </div>
                                 </div>
                                 <div className="lecture-title">
-                                  {lecture.title}
+                                  {lecture.theme}
                                 </div>
                               </>
                             )}

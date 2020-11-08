@@ -1,288 +1,52 @@
-interface Time {
-  hour: number
-  minute?: number
-}
+import googleSheetsApi from '../services/googleSheetsApi'
 
 interface Lecture {
   soon?: boolean
-  title?: string
-  time: Time
+  theme?: string
+  time: string
   speaker?: string
   role?: string
   profileUrl?: string
 }
 
-interface Trail {
+export interface Trail {
   title: string
   speeches: Lecture[]
 }
 
-export const trails: Trail[] = [
-  {
-    title: 'Backend',
-    speeches: [
-      {
-        title: 'Clean Code',
-        time: { hour: 9 },
-        speaker: 'Rodrigo Branas',
-        role: 'Youtuber',
-        profileUrl: 'https://www.linkedin.com/in/rodrigobranas/'
-      },
-      {
-        title: 'Vazamento de memória C#',
-        time: { hour: 10 },
-        speaker: 'Thiago dos Santos',
-        role: 'Venturus',
-        profileUrl: null
-      },
-      {
-        title: 'AI com JS',
-        time: { hour: 11 },
-        speaker: 'Cyntia Zanone',
-        role: 'Venturus',
-        profileUrl: 'https://www.linkedin.com/in/cynthiazanoni/'
-      },
-      {
-        title: 'Arquitetura de IoT para microservicos em node',
-        time: { hour: 13 },
-        speaker: 'Erik Aceiro',
-        role: 'Raizen',
-        profileUrl: 'https://www.linkedin.com/in/erik-aceiro-antonio-aa018925/'
-      },
-      {
-        title: 'Serverless',
-        time: { hour: 14 },
-        speaker: 'Ericson da Fonseca',
-        role: 'Dextra',
-        profileUrl: 'https://www.linkedin.com/in/ericsondafonseca/'
-      },
-      {
-        title: 'Finite State Machine',
-        time: { hour: 15 },
-        speaker: 'Guilherme Biff Zarelli',
-        role: 'Luiza Labs',
-        profileUrl: 'https://www.linkedin.com/in/gbzarelli/'
-      },
-      {
-        title: 'Data Science: desenvolvendo um modelo de machine learning',
-        time: { hour: 16 },
-        speaker: 'Wesley Nunes Watanabe',
-        role: 'VHSYS',
-        profileUrl: 'https://www.linkedin.com/in/wesleywatanabe/'
+export default async function getTrails(): Promise<Trail[]> {
+  const doc = await googleSheetsApi()
+
+  const sheet = doc.sheetsByIndex[0]
+  const rows = await sheet.getRows()
+
+  const trails = []
+
+  rows.map(
+    ({ trail: trailTitle, theme, time, speaker, role, profile_url, soon }) => {
+      const trailNotExists =
+        trails.findIndex(({ title }) => title === trailTitle) <= -1
+
+      if (trailNotExists) {
+        trails.push({
+          title: trailTitle,
+          speeches: []
+        })
       }
-    ]
-  },
-  {
-    title: 'Frontend',
-    speeches: [
-      {
-        title: 'Clean Code',
-        time: { hour: 9 },
-        speaker: 'Rodrigo Branas',
-        role: 'Youtuber',
-        profileUrl: 'https://www.linkedin.com/in/rodrigobranas/'
-      },
-      {
-        title: 'Vazamento de memória C#',
-        time: { hour: 1 },
-        speaker: 'Thiago dos Santos',
-        role: 'Venturus',
-        profileUrl: null
-      },
-      {
-        title: 'AI com JS',
-        time: { hour: 1 },
-        speaker: 'Cyntia Zanone',
-        role: 'Venturus',
-        profileUrl: 'https://www.linkedin.com/in/cynthiazanoni/'
-      },
-      {
-        title: 'Arquitetura de IoT para microservicos em node',
-        time: { hour: 1 },
-        speaker: 'Erik Aceiro',
-        role: 'Raizen',
-        profileUrl: 'https://www.linkedin.com/in/erik-aceiro-antonio-aa018925/'
-      },
-      {
-        title: 'Serverless',
-        time: { hour: 1 },
-        speaker: 'Ericson da Fonseca',
-        role: 'Dextra',
-        profileUrl: 'https://www.linkedin.com/in/ericsondafonseca/'
-      },
-      {
-        title: 'Finite State Machine',
-        time: { hour: 1 },
-        speaker: 'Guilherme Biff Zarelli',
-        role: 'Luiza Labs',
-        profileUrl: 'https://www.linkedin.com/in/gbzarelli/'
-      },
-      {
-        title: 'Data Science: desenvolvendo um modelo de machine learning',
-        time: { hour: 1 },
-        speaker: 'Wesley Nunes Watanabe',
-        role: 'VHSYS',
-        profileUrl: 'https://www.linkedin.com/in/wesleywatanabe/'
+
+      const trail = trails.find(({ title }) => title === trailTitle)
+
+      const lecture: Lecture = {
+        theme: theme || null,
+        time: time.replace(':', 'h'),
+        speaker: speaker || null,
+        role: role || null,
+        profileUrl: profile_url || null,
+        soon: !!soon
       }
-    ]
-  },
-  {
-    title: 'Devops',
-    speeches: [
-      {
-        title: 'Clean Code',
-        time: { hour: 9 },
-        speaker: 'Rodrigo Branas',
-        role: 'Youtuber',
-        profileUrl: 'https://www.linkedin.com/in/rodrigobranas/'
-      },
-      {
-        title: 'Vazamento de memória C#',
-        time: { hour: 1 },
-        speaker: 'Thiago dos Santos',
-        role: 'Venturus',
-        profileUrl: null
-      },
-      {
-        title: 'AI com JS',
-        time: { hour: 1 },
-        speaker: 'Cyntia Zanone',
-        role: 'Venturus',
-        profileUrl: 'https://www.linkedin.com/in/cynthiazanoni/'
-      },
-      {
-        title: 'Arquitetura de IoT para microservicos em node',
-        time: { hour: 1 },
-        speaker: 'Erik Aceiro',
-        role: 'Raizen',
-        profileUrl: 'https://www.linkedin.com/in/erik-aceiro-antonio-aa018925/'
-      },
-      {
-        title: 'Serverless',
-        time: { hour: 1 },
-        speaker: 'Ericson da Fonseca',
-        role: 'Dextra',
-        profileUrl: 'https://www.linkedin.com/in/ericsondafonseca/'
-      },
-      {
-        title: 'Finite State Machine',
-        time: { hour: 1 },
-        speaker: 'Guilherme Biff Zarelli',
-        role: 'Luiza Labs',
-        profileUrl: 'https://www.linkedin.com/in/gbzarelli/'
-      },
-      {
-        title: 'Data Science: desenvolvendo um modelo de machine learning',
-        time: { hour: 1 },
-        speaker: 'Wesley Nunes Watanabe',
-        role: 'VHSYS',
-        profileUrl: 'https://www.linkedin.com/in/wesleywatanabe/'
-      }
-    ]
-  },
-  {
-    title: 'UI/UX',
-    speeches: [
-      {
-        soon: true,
-        time: { hour: 9 }
-      },
-      {
-        title: 'Vazamento de memória C#',
-        time: { hour: 1 },
-        speaker: 'Thiago dos Santos',
-        role: 'Venturus',
-        profileUrl: null
-      },
-      {
-        title: 'AI com JS',
-        time: { hour: 1 },
-        speaker: 'Cyntia Zanone',
-        role: 'Venturus',
-        profileUrl: 'https://www.linkedin.com/in/cynthiazanoni/'
-      },
-      {
-        title: 'Arquitetura de IoT para microservicos em node',
-        time: { hour: 1 },
-        speaker: 'Erik Aceiro',
-        role: 'Raizen',
-        profileUrl: 'https://www.linkedin.com/in/erik-aceiro-antonio-aa018925/'
-      },
-      {
-        title: 'Serverless',
-        time: { hour: 1 },
-        speaker: 'Ericson da Fonseca',
-        role: 'Dextra',
-        profileUrl: 'https://www.linkedin.com/in/ericsondafonseca/'
-      },
-      {
-        title: 'Finite State Machine',
-        time: { hour: 1 },
-        speaker: 'Guilherme Biff Zarelli',
-        role: 'Luiza Labs',
-        profileUrl: 'https://www.linkedin.com/in/gbzarelli/'
-      },
-      {
-        title: 'Data Science: desenvolvendo um modelo de machine learning',
-        time: { hour: 1 },
-        speaker: 'Wesley Nunes Watanabe',
-        role: 'VHSYS',
-        profileUrl: 'https://www.linkedin.com/in/wesleywatanabe/'
-      }
-    ]
-  },
-  {
-    title: 'Metodologias Ágeis',
-    speeches: [
-      {
-        title: 'Clean Code',
-        time: { hour: 9 },
-        speaker: 'Rodrigo Branas',
-        role: 'Youtuber',
-        profileUrl: 'https://www.linkedin.com/in/rodrigobranas/'
-      },
-      {
-        title: 'Vazamento de memória C#',
-        time: { hour: 1 },
-        speaker: 'Thiago dos Santos',
-        role: 'Venturus',
-        profileUrl: null
-      },
-      {
-        title: 'AI com JS',
-        time: { hour: 1 },
-        speaker: 'Cyntia Zanone',
-        role: 'Venturus',
-        profileUrl: 'https://www.linkedin.com/in/cynthiazanoni/'
-      },
-      {
-        title: 'Arquitetura de IoT para microservicos em node',
-        time: { hour: 1 },
-        speaker: 'Erik Aceiro',
-        role: 'Raizen',
-        profileUrl: 'https://www.linkedin.com/in/erik-aceiro-antonio-aa018925/'
-      },
-      {
-        title: 'Serverless',
-        time: { hour: 1 },
-        speaker: 'Ericson da Fonseca',
-        role: 'Dextra',
-        profileUrl: 'https://www.linkedin.com/in/ericsondafonseca/'
-      },
-      {
-        title: 'Finite State Machine',
-        time: { hour: 1 },
-        speaker: 'Guilherme Biff Zarelli',
-        role: 'Luiza Labs',
-        profileUrl: 'https://www.linkedin.com/in/gbzarelli/'
-      },
-      {
-        title: 'Data Science: desenvolvendo um modelo de machine learning',
-        time: { hour: 1 },
-        speaker: 'Wesley Nunes Watanabe',
-        role: 'VHSYS',
-        profileUrl: 'https://www.linkedin.com/in/wesleywatanabe/'
-      }
-    ]
-  }
-]
+
+      trail.speeches.push(lecture)
+    }
+  )
+  return trails
+}
