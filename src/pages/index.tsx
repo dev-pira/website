@@ -245,12 +245,96 @@ const Home: React.FC<{ trails: Trail[] }> = ({ trails }) => {
             <div className="col-9 col-md-6">
               <h1 className="section-title">Trilhas</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                ac euismod velit. Proin cursus hendrerit leo eu vestibulum.
-                Nullam dictum, velit nec consectetur maximus, neque risus
-                consequat dui, sit amet iaculis mauris sapien non massa. Nam
-                cursus finibus tortor, vitae commodo leo eleifend eu.
+                Confira em nossas trilhas o conteúdo especial que preparamos em
+                Back-end, Front-end, DevOps, UX/UI e Metodologias Ágeis para
+                você!
               </p>
+
+              <p>
+                Tudo pensado com muito carinho e dedicação por{' '}
+                <a
+                  href="https://www.linkedin.com/in/carolineaalves/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Caroline Alves
+                </a>
+                ,{' '}
+                <a
+                  href="https://www.linkedin.com/in/maribeiromendes/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Mariana Ribeiro
+                </a>
+                ,{' '}
+                <a
+                  href="https://www.linkedin.com/in/renatodosanjoss/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Renato dos Anjos
+                </a>
+                ,{' '}
+                <a
+                  href="https://www.linkedin.com/in/murilobeltrame/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Murilo Beltrame
+                </a>
+                ,{' '}
+                <a
+                  href="https://www.linkedin.com/in/keellyreis/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Kelly Reis
+                </a>
+                ,{' '}
+                <a
+                  href="https://www.linkedin.com/in/fabiobaldin/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Fábio Baldin
+                </a>
+                ,{' '}
+                <a
+                  href="https://www.linkedin.com/in/claytonlotar/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Clayton Lotar
+                </a>
+                ,{' '}
+                <a
+                  href="https://www.linkedin.com/in/barros42/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Matheus Barros
+                </a>
+                ,{' '}
+                <a
+                  href="https://www.linkedin.com/in/gabrielcordeirosantos/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Gabriel Cordeiro
+                </a>{' '}
+                e{' '}
+                <a
+                  href="https://www.linkedin.com/in/viniciuscoder/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Vinicius de Moraes
+                </a>
+                .
+              </p>
+
+              <p>Eaperamos que goste! :D</p>
               <h2 className="featured-date">05/dezembro</h2>
             </div>
             <div className="col-3 col-md-6 col-lg-5">

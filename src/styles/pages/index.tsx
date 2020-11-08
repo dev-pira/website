@@ -556,6 +556,16 @@ export const SectionTrails = styled(Section)`
     margin-top: 20px;
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    &:hover {
+      color: ${props => props.theme.colors.primary};
+    }
+  }
+
   figure {
     position: absolute;
     right: 0;
