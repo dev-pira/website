@@ -297,9 +297,7 @@ const Home: React.FC<{ trails: Trail[] }> = ({ trails }) => {
                         >
                           <div className="lecture-content">
                             <div className="lecture-time">{lecture.time}</div>
-                            {lecture.soon ? (
-                              <div className="lecture-soon">Em breve</div>
-                            ) : (
+                            {lecture.active ? (
                               <>
                                 <div className="lecture-center">
                                   <h4 className="lecture-speeker">
@@ -313,6 +311,8 @@ const Home: React.FC<{ trails: Trail[] }> = ({ trails }) => {
                                   {lecture.theme}
                                 </div>
                               </>
+                            ) : (
+                              <div className="lecture-soon">Em breve</div>
                             )}
                           </div>
                         </div>

@@ -1,7 +1,7 @@
 import googleSheetsApi from '../services/googleSheetsApi'
 
 interface Lecture {
-  soon?: boolean
+  active?: boolean
   theme?: string
   time: string
   speaker?: string
@@ -23,7 +23,15 @@ export default async function getTrails(): Promise<Trail[]> {
   const trails = []
 
   rows.map(
-    ({ trail: trailTitle, theme, time, speaker, role, profile_url, soon }) => {
+    ({
+      trail: trailTitle,
+      theme,
+      time,
+      speaker,
+      role,
+      profile_url,
+      active
+    }) => {
       const trailNotExists =
         trails.findIndex(({ title }) => title === trailTitle) <= -1
 
@@ -42,7 +50,7 @@ export default async function getTrails(): Promise<Trail[]> {
         speaker: speaker || null,
         role: role || null,
         profileUrl: profile_url || null,
-        soon: !!soon
+        active: active === 'TRUE'
       }
 
       trail.speeches.push(lecture)
