@@ -650,11 +650,11 @@ export const SectionTrails = styled(Section)`
 
             .lecture-title {
               color: ${props => lighten(0.7, props.theme.colors.secondary)};
+              margin: 5px 0;
             }
 
             .lecture-role {
               font-weight: bold;
-              margin-top: 5px;
             }
 
             .lecture-soon {
