@@ -299,14 +299,19 @@ const Home: React.FC<{ trails: Trail[] }> = ({ trails }) => {
                             <div className="lecture-time">{lecture.time}</div>
                             {lecture.active ? (
                               <>
-                                <div className="lecture-center">
-                                  <h4 className="lecture-speeker">
+                                <a
+                                  className="lecture-center"
+                                  href={lecture.profileUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  <h4 className="lecture-speaker">
                                     {lecture.speaker}
                                   </h4>
                                   <div className="lecture-role">
                                     {lecture.role}
                                   </div>
-                                </div>
+                                </a>
                                 <div className="lecture-title">
                                   {lecture.theme}
                                 </div>

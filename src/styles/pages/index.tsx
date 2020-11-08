@@ -605,7 +605,21 @@ export const SectionTrails = styled(Section)`
             min-height: 100%;
 
             .lecture-center {
-              margin: 30px 0;
+              width: 100%;
+              padding: 10px 0;
+              margin: 20px 0;
+              text-decoration: none;
+              border: dotted 1px transparent;
+              border-radius: 12px;
+              transition: all 0.2s ease;
+
+              &:hover {
+                background-color: ${props =>
+                  lighten(0.22, props.theme.colors.secondary)};
+                transform: translate3d(0, -2px, 0);
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06),
+                  0 10px 10px rgba(0, 0, 0, 0.08);
+              }
             }
 
             .lecture-time,
@@ -614,7 +628,7 @@ export const SectionTrails = styled(Section)`
             }
 
             .lecture-time,
-            .lecture-speeker,
+            .lecture-speaker,
             .lecture-soon {
               font-family: ${props => props.theme.fonts.featured};
             }
@@ -629,7 +643,7 @@ export const SectionTrails = styled(Section)`
               font-size: 32px;
             }
 
-            .lecture-speeker {
+            .lecture-speaker {
               color: #fff;
               font-size: 24px;
             }
