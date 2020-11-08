@@ -4,6 +4,7 @@ import { FaChevronDown } from 'react-icons/fa'
 import { Link as LinkScroll } from 'react-scroll'
 import dynamic from 'next/dynamic'
 import getTrails, { Trail } from '../data/trails'
+import getTestimonials, { Testimonial } from '../data/testimonials'
 
 import {
   RiFacebookBoxFill,
@@ -30,16 +31,23 @@ const Slider = dynamic(() => import('../components/Slider'), { ssr: false })
 
 export const getStaticProps: GetStaticProps = async () => {
   const trails = await getTrails()
+  const testimonials = await getTestimonials()
 
   return {
     props: {
-      trails
+      trails,
+      testimonials
     },
     revalidate: 1
   }
 }
 
-const Home: React.FC<{ trails: Trail[] }> = ({ trails }) => {
+interface HomeProps {
+  trails: Trail[]
+  testimonials: Testimonial[]
+}
+
+const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
   return (
     <Layout title="DEVPIRA - 2020">
       <SectionIntro>
@@ -154,90 +162,42 @@ const Home: React.FC<{ trails: Trail[] }> = ({ trails }) => {
         </div>
       </SectionComunity>
 
-      <SectionTestimonials id="testimonials">
-        <div className="container-fluid">
-          <h1 className="section-title">Depoimentos</h1>
-          <Slider
-            className="slider"
-            settings={{
-              navPosition: 'bottom',
-              autoHeight: true,
-              responsive: {
-                768: {
-                  items: 2,
-                  center: true
-                },
-                1200: {
-                  items: 3,
-                  center: true
+      {testimonials.length > 0 && (
+        <SectionTestimonials id="testimonials">
+          <div className="container-fluid">
+            <h1 className="section-title">Depoimentos</h1>
+            <Slider
+              className="slider"
+              settings={{
+                navPosition: 'bottom',
+                autoHeight: true,
+                responsive: {
+                  768: {
+                    items: 2,
+                    center: true
+                  },
+                  1200: {
+                    items: 3,
+                    center: true
+                  }
                 }
-              }
-            }}
-          >
-            <div className="card">
-              <figure>
-                <blockquote className="testimonial">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  ac euismod velit. Proin cursus hendrerit leo eu vestibulum.
-                  Nullam dictum, velit nec consectetur maximus, neque risus
-                  consequat dui, sit amet iaculis mauris sapien non massa. Nam
-                  cursus finibus tortor, vitae commodo leo eleifend eu.
-                </blockquote>
-                <footer className="author">
-                  Fulano de tal - CTO na Fulano
-                </footer>
-              </figure>
-            </div>
-            <div className="card">
-              <figure>
-                <blockquote className="testimonial">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  ac euismod velit. Proin cursus hendrerit leo eu vestibulum.
-                  Nullam dictum, velit nec consectetur maximus, neque risus
-                  consequat dui, sit amet iaculis mauris sapien non massa. Nam
-                  cursus finibus tortor, vitae commodo leo eleifend eu. Nam
-                  cursus finibus tortor, vitae commodo leo eleifend eu. Nam
-                  cursus finibus tortor, vitae commodo leo eleifend eu.
-                </blockquote>
-                <footer className="author">
-                  Fulano de tal - CTO na Fulano
-                </footer>
-              </figure>
-            </div>
-            <div className="card">
-              <figure>
-                <blockquote className="testimonial">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  ac euismod velit. Proin cursus hendrerit leo eu vestibulum.
-                  Nullam dictum, velit nec consectetur maximus, neque risus
-                  consequat dui, sit amet iaculis mauris sapien non massa. Nam
-                  cursus finibus tortor, vitae commodo leo eleifend eu.
-                </blockquote>
-                <footer className="author">
-                  Fulano de tal - CTO na Fulano
-                </footer>
-              </figure>
-            </div>
-            <div className="card">
-              <figure>
-                <blockquote className="testimonial">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  ac euismod velit. Proin cursus hendrerit leo eu vestibulum.
-                  Nullam dictum, velit nec consectetur maximus, neque risus
-                  consequat dui, sit amet iaculis mauris sapien non massa. Nam
-                  cursus finibus tortor, vitae commodo leo eleifend eu. Nam
-                  cursus finibus tortor, vitae commodo leo eleifend eu. Nam
-                  cursus finibus tortor, vitae commodo leo eleifend eu.
-                </blockquote>
-                <footer className="author">
-                  Fulano de tal - CTO na Fulano
-                </footer>
-              </figure>
-            </div>
-          </Slider>
-        </div>
-        <img src="/assets/person-1.svg" alt="" width={290} height={256} />
-      </SectionTestimonials>
+              }}
+            >
+              {testimonials.map(testimonial => (
+                <div key={testimonial.name} className="card">
+                  <figure>
+                    <blockquote className="testimonial">
+                      {testimonial.text}
+                    </blockquote>
+                    <footer className="author">{testimonial.name}</footer>
+                  </figure>
+                </div>
+              ))}
+            </Slider>
+          </div>
+          <img src="/assets/person-1.svg" alt="" width={290} height={256} />
+        </SectionTestimonials>
+      )}
 
       <SectionTrails id="trails">
         <div className="container">
