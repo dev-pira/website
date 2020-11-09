@@ -51,14 +51,6 @@ const Header: React.FC = () => {
                 </NavScroll>
               </li>
               <li>
-                <NavScroll
-                  to="testimonials"
-                  onClick={() => setMenuIsOpen(false)}
-                >
-                  Depoimentos
-                </NavScroll>
-              </li>
-              <li>
                 <NavScroll to="trails" onClick={() => setMenuIsOpen(false)}>
                   Trilhas
                 </NavScroll>

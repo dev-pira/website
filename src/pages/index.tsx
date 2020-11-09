@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next'
 import { FaChevronDown } from 'react-icons/fa'
 import { Link as LinkScroll } from 'react-scroll'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import getTrails, { Trail } from '../data/trails'
 import getTestimonials, { Testimonial } from '../data/testimonials'
 
@@ -49,14 +50,14 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
   return (
-    <Layout title="DEVPIRA - 2020">
+    <Layout title="DevPira Festival 2020">
       <SectionIntro>
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6 col-info">
               <img
                 src="/assets/logo-event.svg"
-                alt=""
+                alt="DEVPIRA Festival 2020 - 05 de Dezembro"
                 className="img-fluid"
                 width={540}
                 height={156}
@@ -376,44 +377,62 @@ const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
 
       <SectionSponsors id="sponsors">
         <div className="container">
-          <section>
-            <h1 className="section-title">Iniciativa</h1>
-            <div className="brands">
-              {Array.from(Array(4).keys()).map(key => (
+          <div className="row">
+            <div className="col-12 col-lg-4">
+              <h1 className="section-title">Iniciativa</h1>
+              <div className="brands">
                 <a
-                  key={key}
                   href="https://devpira.com.br"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img
-                    src={`https://logoipsum.com/logo/logo-${key + 8}.svg`}
-                    alt=""
-                    title="Logotipo"
+                  <Image
+                    src="/assets/logos/devpira.png"
+                    alt="Logotipo DEVPIRA"
+                    width={267}
+                    height={150}
                   />
                 </a>
-              ))}
+              </div>
             </div>
-          </section>
-          <section>
-            <h1 className="section-title">Apoio</h1>
-            <div className="brands">
-              {Array.from(Array(14).keys()).map(key => (
+            <div className="col-12 col-lg-8">
+              <h1 className="section-title">Apoio</h1>
+              <div className="brands">
+                <a href="https://pecege.com" target="_blank" rel="noreferrer">
+                  <Image
+                    src="/assets/logos/pecege.png"
+                    alt="Logotipo Pecege"
+                    width={267}
+                    height={150}
+                  />
+                </a>
                 <a
-                  key={key}
-                  href="https://devpira.com.br"
+                  href="https://www.agtechgarage.com/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img
-                    src={`https://logoipsum.com/logo/logo-${16 - key}.svg`}
-                    alt=""
-                    title="Logotipo"
+                  <Image
+                    src="/assets/logos/agtech-garage.png"
+                    alt="Logotipo AgTech Garage"
+                    width={267}
+                    height={150}
                   />
                 </a>
-              ))}
+                <a
+                  href="https://www.pulsehub.com.br/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Image
+                    src="/assets/logos/pulse.png"
+                    alt="Logotipo Pulse"
+                    width={267}
+                    height={150}
+                  />
+                </a>
+              </div>
             </div>
-          </section>
+          </div>
         </div>
       </SectionSponsors>
 

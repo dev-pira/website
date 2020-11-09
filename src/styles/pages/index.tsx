@@ -477,7 +477,7 @@ export const SectionSocialMedias = styled(Section)`
   }
 `
 export const SectionSponsors = styled(Section)`
-  section {
+  .row > * {
     &:first-child {
       margin-bottom: ${props => props.theme.grid.gap * 2}px;
       .section-title {
@@ -494,7 +494,6 @@ export const SectionSponsors = styled(Section)`
   .brands {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     a {
       display: inline-flex;
@@ -523,19 +522,20 @@ export const SectionSponsors = styled(Section)`
     .section-title {
       text-align: center;
     }
+
+    .brands {
+      justify-content: center;
+    }
   }
 
   @media screen and (min-width: 1024px) {
-    .brands {
-      a {
-        width: 25%;
-      }
-    }
+    padding: ${props => props.theme.grid.gap * 4.8}px 0;
 
-    section:last-child {
+    .row > *:first-child {
+      margin-bottom: 0;
       .brands {
         a {
-          width: 20%;
+          width: 70%;
         }
       }
     }

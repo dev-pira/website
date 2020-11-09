@@ -32,9 +32,6 @@ const Footer: React.FC = () => {
                   <NavScroll to="community">Comunidade</NavScroll>
                 </li>
                 <li>
-                  <NavScroll to="testimonials">Depoimentos</NavScroll>
-                </li>
-                <li>
                   <NavScroll to="trails">Trilhas</NavScroll>
                 </li>
                 <li>
