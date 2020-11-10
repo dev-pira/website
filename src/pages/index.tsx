@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps = async () => {
       trails,
       testimonials
     },
-    revalidate: 1
+    revalidate: 100
   }
 }
 
