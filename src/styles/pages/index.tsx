@@ -333,7 +333,7 @@ export const SectionTestimonials = styled(Section)`
       }
 
       .card {
-        display: flex;
+        display: inline-flex !important;
         align-items: center;
         padding: ${props => props.theme.grid.gap / 2}px;
         figure {
