@@ -180,14 +180,14 @@ const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
                 autoHeight: true,
                 responsive: {
                   768: {
-                    edgePadding: (50 * windowSize) / 100,
+                    edgePadding: windowSize / 4,
                     autoHeight: false,
                     autoplay: true,
                     autoplayHoverPause: true,
                     speed: 1000
                   },
                   1200: {
-                    edgePadding: (33 * windowSize) / 100
+                    edgePadding: windowSize / 3
                   }
                 }
               }}
