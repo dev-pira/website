@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GetStaticProps } from 'next'
 import { FaChevronDown } from 'react-icons/fa'
 import { Link as LinkScroll } from 'react-scroll'
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps = async () => {
       trails,
       testimonials
     },
-    revalidate: 100
+    revalidate: 120
   }
 }
 
@@ -49,6 +49,12 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
+  const [windowSize, setWindowSize] = useState(0)
+
+  useEffect(() => {
+    setWindowSize(window.innerWidth)
+  }, [])
+
   return (
     <Layout title="DevPira Festival 2020">
       <SectionIntro>
@@ -174,12 +180,14 @@ const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
                 autoHeight: true,
                 responsive: {
                   768: {
-                    items: 2,
-                    center: true
+                    edgePadding: (50 * windowSize) / 100,
+                    autoHeight: false,
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    speed: 1000
                   },
                   1200: {
-                    items: 3,
-                    center: true
+                    edgePadding: (33 * windowSize) / 100
                   }
                 }
               }}

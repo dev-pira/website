@@ -328,7 +328,13 @@ export const SectionTestimonials = styled(Section)`
         margin-top: 20px;
       }
 
+      .tns-slider {
+        display: flex;
+      }
+
       .card {
+        display: flex;
+        align-items: center;
         padding: ${props => props.theme.grid.gap / 2}px;
         figure {
           footer {
