@@ -7,11 +7,25 @@ interface Lecture {
   speaker?: string
   role?: string
   profileUrl?: string
+  photoUrl?: string
 }
 
 export interface Trail {
   title: string
   speeches: Lecture[]
+}
+
+function handlePhotoUrl(url: string) {
+  if (!url) return
+
+  const isGoogleDriveUrl = url.match(
+    /^https?:\/\/drive\.google\.com\/file\/d\/(.+)\//
+  )
+
+  if (!isGoogleDriveUrl) return
+  const [, fileId] = isGoogleDriveUrl
+
+  return `https://drive.google.com/uc?id=${fileId}`
 }
 
 export default async function getTrails(): Promise<Trail[]> {
@@ -30,6 +44,7 @@ export default async function getTrails(): Promise<Trail[]> {
       speaker,
       role,
       profile_url,
+      photo_url,
       active
     }) => {
       const trailNotExists =
@@ -50,6 +65,7 @@ export default async function getTrails(): Promise<Trail[]> {
         speaker: speaker || null,
         role: role || null,
         profileUrl: profile_url || null,
+        photoUrl: handlePhotoUrl(photo_url) || null,
         active: active === 'TRUE'
       }
 

@@ -349,9 +349,16 @@ const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
                           key={lecture.theme + index}
                         >
                           <div className="lecture-content">
+                            {lecture.photoUrl && (
+                              <img
+                                src={lecture.photoUrl}
+                                alt={lecture.speaker}
+                                className="lecture-image"
+                              />
+                            )}
                             <div className="lecture-time">{lecture.time}</div>
                             {lecture.active ? (
-                              <>
+                              <div className="lecture-footer">
                                 <a
                                   className="lecture-center"
                                   href={lecture.profileUrl}
@@ -368,7 +375,7 @@ const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
                                 <div className="lecture-title">
                                   {lecture.theme}
                                 </div>
-                              </>
+                              </div>
                             ) : (
                               <div className="lecture-soon">Em breve</div>
                             )}

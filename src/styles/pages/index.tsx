@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { darken, lighten, transparentize } from 'polished'
 
 export const SectionIntro = styled.article`
@@ -609,91 +609,6 @@ export const SectionTrails = styled(Section)`
         }
       }
       .trail-speeches {
-        .trail-lecture {
-          .lecture-content {
-            background: ${props => lighten(0.2, props.theme.colors.secondary)};
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            text-align: center;
-            min-height: 100%;
-
-            .lecture-center {
-              width: 100%;
-              padding: 10px 0;
-              margin: 20px 0;
-              text-decoration: none;
-              border: dotted 1px transparent;
-              border-radius: 12px;
-              transition: all 0.2s ease;
-
-              &:hover {
-                background-color: ${props =>
-                  lighten(0.22, props.theme.colors.secondary)};
-                transform: translate3d(0, -2px, 0);
-                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06),
-                  0 10px 10px rgba(0, 0, 0, 0.08);
-              }
-            }
-
-            .lecture-time,
-            .lecture-role {
-              color: ${props => props.theme.colors.primary};
-            }
-
-            .lecture-time,
-            .lecture-speaker,
-            .lecture-soon {
-              font-family: ${props => props.theme.fonts.featured};
-            }
-
-            .lecture-role,
-            .lecture-title {
-              line-height: 1.2em;
-            }
-
-            .lecture-time,
-            .lecture-soon {
-              font-size: 32px;
-            }
-
-            .lecture-speaker {
-              color: #fff;
-              font-size: 24px;
-            }
-
-            .lecture-title {
-              color: ${props => lighten(0.7, props.theme.colors.secondary)};
-              margin: 5px 0;
-            }
-
-            .lecture-role {
-              font-weight: bold;
-            }
-
-            .lecture-soon {
-              display: flex;
-              flex-direction: column;
-              flex: 1;
-              justify-content: center;
-              align-items: center;
-              width: 100%;
-              &:before,
-              &:after {
-                content: '';
-                display: flex;
-                border-top: dotted 2px ${props => props.theme.colors.secondary};
-                height: 0;
-                width: 100%;
-                margin: 10px 0;
-              }
-            }
-          }
-        }
-
         .tns-slider {
           display: flex;
         }
@@ -760,6 +675,136 @@ export const SectionTrails = styled(Section)`
           }
         }
       }
+
+      .lecture-content {
+        background-color: ${props =>
+          lighten(0.2, props.theme.colors.secondary)};
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        height: 100%;
+        min-height: 350px;
+        margin: 5px 0;
+        position: relative;
+        overflow: hidden;
+        transition: 0.2s ease;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to bottom,
+            ${props => transparentize(0.4, props.theme.colors.secondary)},
+            ${props => props.theme.colors.secondary}
+          );
+          transition: all 0.2s ease;
+          z-index: 1;
+        }
+
+        > * {
+          position: relative;
+          width: 100%;
+        }
+
+        .lecture-center,
+        .lecture-time,
+        .lecture-soon,
+        .lecture-footer {
+          z-index: 3;
+        }
+
+        .lecture-image {
+          object-fit: cover;
+          overflow: hidden;
+          border-radius: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          filter: grayscale(1);
+        }
+
+        .lecture-center {
+          display: block;
+          width: 100%;
+          padding: 10px 0;
+          margin: 10px 0;
+          text-decoration: none;
+          border: dotted 1px transparent;
+          border-radius: 12px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background-color: ${props =>
+              lighten(0.22, props.theme.colors.secondary)};
+            transform: translate3d(0, -2px, 0);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06),
+              0 10px 10px rgba(0, 0, 0, 0.08);
+          }
+        }
+
+        .lecture-time,
+        .lecture-role {
+          color: ${props => props.theme.colors.primary};
+        }
+
+        .lecture-time,
+        .lecture-speaker,
+        .lecture-soon {
+          font-family: ${props => props.theme.fonts.featured};
+        }
+
+        .lecture-role,
+        .lecture-title {
+          line-height: 1.2em;
+        }
+
+        .lecture-time,
+        .lecture-soon {
+          font-size: 32px;
+        }
+
+        .lecture-speaker {
+          color: #fff;
+          font-size: 24px;
+        }
+
+        .lecture-title {
+          color: ${props => lighten(0.7, props.theme.colors.secondary)};
+          margin: 5px 0;
+        }
+
+        .lecture-role {
+          font-weight: bold;
+        }
+
+        .lecture-soon {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          &:before,
+          &:after {
+            content: '';
+            display: flex;
+            border-top: dotted 2px ${props => props.theme.colors.secondary};
+            height: 0;
+            width: 100%;
+            margin: 10px 0;
+          }
+        }
+      }
     }
   }
 
@@ -780,6 +825,25 @@ export const SectionTrails = styled(Section)`
       transform: translate3d(0, 0, 0);
       img {
         transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .trails {
+      .trail {
+        .trail-speeches {
+          .lecture-content {
+            min-height: 400px;
+            &:hover {
+              transform: translate3d(0, -5px, 0);
+              .lecture-image {
+                filter: grayscale(0);
+              }
+              &:before {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
       }
     }
   }
