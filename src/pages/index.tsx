@@ -303,7 +303,7 @@ const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
                 .
               </p>
 
-              <p>Eaperamos que goste! :D</p>
+              <p>Esperamos que goste! :D</p>
               <h2 className="featured-date">05/dezembro</h2>
             </div>
             <div className="col-3 col-md-6 col-lg-5">
