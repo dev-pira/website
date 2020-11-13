@@ -13,6 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
     <>
       <Head>
         <title>{title}</title>
+        <meta property="og:image" content="/assets/featured-image.png"></meta>
       </Head>
       <Header />
 
