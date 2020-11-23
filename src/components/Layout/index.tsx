@@ -13,7 +13,10 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
     <>
       <Head>
         <title>{title}</title>
-        <meta property="og:image" content="/assets/featured-image.png"></meta>
+        <meta
+          property="og:image"
+          content={`${process.env.NEXT_PUBLIC_VERCEL_URL}/assets/featured-image.png`}
+        ></meta>
       </Head>
       <Header />
 
