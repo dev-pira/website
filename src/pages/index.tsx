@@ -56,7 +56,10 @@ const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
   }, [])
 
   return (
-    <Layout title="DevPira Festival 2020">
+    <Layout
+      title="DevPira Festival 2020"
+      description="O DevPira Festival é um evento de integração entre seres, ferramentas e metodologias."
+    >
       <SectionIntro>
         <div className="container">
           <div className="row">
