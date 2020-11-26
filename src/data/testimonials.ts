@@ -6,15 +6,20 @@ export interface Testimonial {
 }
 
 export default async function getTestimonials(): Promise<Testimonial[]> {
-  const doc = await googleSheetsApi()
+  try {
+    const doc = await googleSheetsApi()
 
-  const sheet = doc.sheetsByIndex[1]
-  const rows = await sheet.getRows()
+    const sheet = doc.sheetsByIndex[1]
+    const rows = await sheet.getRows()
 
-  const testimonials = rows.map(({ text, name }) => ({
-    text,
-    name
-  }))
+    const testimonials = rows.map(({ text, name }) => ({
+      text,
+      name
+    }))
 
-  return testimonials
+    return testimonials
+  } catch (error) {
+    console.error(error)
+    return []
+  }
 }
