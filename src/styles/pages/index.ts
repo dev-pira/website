@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { darken, lighten, transparentize } from 'polished'
 
 export const SectionIntro = styled.article`

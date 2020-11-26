@@ -55,6 +55,8 @@ export const HeaderContainer = styled.header<HeaderProps>`
           display: flex;
           align-items: center;
           text-transform: uppercase;
+          text-decoration: none;
+          color: ${props => props.theme.colors.secondary};
         }
       }
     }

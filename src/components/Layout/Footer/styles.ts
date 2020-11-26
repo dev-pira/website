@@ -32,6 +32,7 @@ export const FooterContainer = styled.footer`
           padding: 16px 24px;
           display: block;
           border-radius: 6px;
+          text-decoration: none;
           transition: all 0.2s ease;
           &:hover {
             color: ${props => props.theme.colors.primary};

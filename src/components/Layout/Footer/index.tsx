@@ -4,6 +4,7 @@ import ButtonLink from '../../ButtonLink'
 import NavScroll from '../../NavScroll'
 
 import { FooterContainer } from './styles'
+import NavLink from '../../NavLink'
 
 const Footer: React.FC = () => {
   return (
@@ -36,6 +37,11 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <NavScroll to="sponsors">Apoio</NavScroll>
+                </li>
+                <li>
+                  <NavLink href="/politica-de-privacidade">
+                    Política de Privacidade
+                  </NavLink>
                 </li>
               </ul>
               <ButtonLink
