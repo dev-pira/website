@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, LinkProps } from 'react-scroll'
 import NavLink from '../NavLink'
 
 const NavScroll: React.FC<LinkProps> = ({ to, children, onClick }) => {
-  if (process.browser && !document.getElementById(to)) {
-    return <NavLink href={`/#${to}`}>{children}</NavLink>
-  }
+  const [isScrollable, setIsScrollable] = useState(true)
 
-  return (
+  useEffect(() => {
+    if (process.browser) {
+      setIsScrollable(!!document.getElementById(to))
+    }
+  }, [to])
+
+  return isScrollable ? (
     <Link
       to={to}
       activeClass="active"
@@ -20,6 +24,8 @@ const NavScroll: React.FC<LinkProps> = ({ to, children, onClick }) => {
     >
       {children}
     </Link>
+  ) : (
+    <NavLink href={`/#${to}`}>{children}</NavLink>
   )
 }
 
