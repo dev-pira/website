@@ -485,12 +485,14 @@ export const SectionSocialMedias = styled(Section)`
 export const SectionSponsors = styled(Section)`
   .row > * {
     &:first-child {
-      margin-bottom: ${props => props.theme.grid.gap * 2}px;
       .section-title {
         color: ${props => props.theme.colors.primary};
       }
     }
-    &:last-child {
+    &:not(:last-child) {
+      margin-bottom: ${props => props.theme.grid.gap * 2}px;
+    }
+    &:not(:first-child) {
       .section-title {
         color: ${props => props.theme.colors.body};
       }
@@ -537,11 +539,20 @@ export const SectionSponsors = styled(Section)`
   @media screen and (min-width: 1024px) {
     padding: ${props => props.theme.grid.gap * 4.8}px 0;
 
-    .row > *:first-child {
-      margin-bottom: 0;
-      .brands {
-        a {
-          width: 70%;
+    .row > * {
+      &:first-child {
+        margin-bottom: 0;
+        .brands {
+          a {
+            width: 70%;
+          }
+        }
+      }
+      &:not(:first-child) {
+        .brands {
+          a {
+            max-width: 233px;
+          }
         }
       }
     }

@@ -450,6 +450,47 @@ const Home: React.FC<HomeProps> = ({ trails, testimonials }) => {
                 </a>
               </div>
             </div>
+            <div className="col-12">
+              <h1 className="section-title">Comunidades Parceiras</h1>
+              <div className="brands">
+                <a
+                  href="https://www.linkedin.com/company/maringaagile/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Image
+                    src="/assets/logos/maringa-agile.png"
+                    alt="Logotipo Maringá Agile"
+                    width={267}
+                    height={150}
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/agilecampinas/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Image
+                    src="/assets/logos/agile-campinas.png"
+                    alt="Logotipo Agile Campinas"
+                    width={267}
+                    height={150}
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/manifestandooagil/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Image
+                    src="/assets/logos/manifestando-o-agil.png"
+                    alt="Logotipo Manifestando o Agil"
+                    width={267}
+                    height={150}
+                  />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </SectionSponsors>
